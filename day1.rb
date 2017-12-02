@@ -17,4 +17,22 @@ end
 
 values = collect_numbers(input)
 
-print values.inject(0, :+)
+puts values.inject(:+)
+
+
+def collect_numbers_again(str)
+    jump = str.length / 2
+    collection = []
+    i = str.length
+    while i > -1 do
+        if str[i] == str[i-jump]
+            collection.push(str[i].to_i)
+        end
+        i = i - 1
+    end
+    collection
+end
+
+second_values = collect_numbers_again(input)
+
+puts second_values.inject(:+)
