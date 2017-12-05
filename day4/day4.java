@@ -2,6 +2,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.Arrays;
+
 import java.io.*;
 
 class day4 {
@@ -9,6 +10,7 @@ class day4 {
   public static void main (String[] args){
 
     int goodCounter = 0;
+    int secondGoodCounter = 0;
     String input = "input.txt";
     String line;
     
@@ -20,7 +22,11 @@ class day4 {
         if (checkPassphrase(line)) {
           goodCounter += 1;
         }
+        if (checkForAngrams(line)) {
+          secondGoodCounter += 1;
+        }
       }
+      bReader.close();
     }
     catch(FileNotFoundException ex) {
       System.out.println("fuck");                
@@ -28,10 +34,9 @@ class day4 {
     catch(IOException ex) {
       System.out.println("java");                  
     }
-    
-    bReader.close();
-    
+     
     System.out.println(goodCounter);
+    System.out.println(secondGoodCounter);
   }
 
   public static boolean checkPassphrase(String phrase){
@@ -43,4 +48,17 @@ class day4 {
       return false;
     }
   }
+
+  public static boolean checkForAngrams(String phrase){
+    String[] words = phrase.split(" ");
+    String newPhrase = "";
+    for ( String word : words) {
+      String[] splitWord = word.split("");
+      Arrays.sort(splitWord);
+      word = String.join("", splitWord);
+      newPhrase = newPhrase + word + " ";
+    }
+    return checkPassphrase(newPhrase);
+  }
+
 }
