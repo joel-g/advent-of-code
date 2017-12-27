@@ -18,3 +18,10 @@ let values = collectNumbers(input)
 
 const sum = values.reduce((a,b) => a + b, 0) 
 console.log(sum)
+
+// const collectNumbersAgain = (str) => {
+//   let jump = str.length / 2;
+//   let collection = [];
+// }
+
+// console.log(input[-1]);
