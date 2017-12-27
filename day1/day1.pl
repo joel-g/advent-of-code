@@ -2,7 +2,7 @@ my $input = '5727627438794453782365262617785338441114632538449493592445433661195
 
 sub collect_numbers {
   my ($str) = @_;
-  @collection = (5);
+  @collection = ();
 
   for (my $i = 0; $i < length($str); $i++) {
     $num = substr($str, $i, 1);
@@ -10,6 +10,11 @@ sub collect_numbers {
     if ($num == $num2) {
       push(@collection, $num);
     }
+  }
+  $first = substr($str, 0, 1);
+  $last = substr($str, length($str) - 1, 1);
+  if ($first == $last) {
+    push(@collection, $first);
   }
   return @collection;
 }
