@@ -23,3 +23,26 @@ function checkSum(nums) {
 }
 
 console.log(checkSum(nums));
+
+
+function divisors(list) {
+    let answer;
+    for (let i = 0; i < list.length; i++) {
+        for (let n = 0; n < list.length; n++) {
+            if ( list[i] != list[n] && list[i] % list[n] == 0 ) {
+                answer = list[i] / list[n]
+            }
+        }
+    }
+    return answer;
+}
+
+function checkSumToo(lists) {
+    let sum = 0;
+    for (const row of lists) {
+        sum += divisors(row);
+    }
+    return sum;
+}
+
+console.log(checkSumToo(nums));
