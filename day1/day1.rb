@@ -19,7 +19,6 @@ values = collect_numbers(input)
 
 puts values.inject(:+)
 
-
 def collect_numbers_again(str)
     jump = str.length / 2
     collection = []
